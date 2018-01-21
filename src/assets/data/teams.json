@@ -1,0 +1,387 @@
+[
+    {
+        "name": "4Qt",
+        "goal": "MobProgramming",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Simon",
+                "lastName": "Burri",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": "../assets/img/people/burri.simon.jpg"
+            },
+            {
+                "firstName": "Stefan",
+                "lastName": "Wüthrich",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Michael",
+                "lastName": "Gubser",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Marc",
+                "lastName": "Brändli",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Marcel",
+                "lastName": "Fischer",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "QuTies",
+        "goal": "Run QT application on Embedded Linux",
+        "motto": "Not so cute but QT",
+        "members": [
+            {
+                "firstName": "Guy",
+                "lastName": "Bilgerig",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Grämer",
+                "lastName": "Tobias",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Tobias",
+                "lastName": "Obrist",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Philip",
+                "lastName": "Dietrich",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "Gruppe",
+        "goal": "Neuronal network on JVM",
+        "motto": "DIGITAL BRAINS!!!!",
+        "members": [
+            {
+                "firstName": "Urs",
+                "lastName": "Grob",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Thomas",
+                "lastName": "Chassaing",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Melanie",
+                "lastName": "Hugentobler",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Serge",
+                "lastName": "Murset",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Philippe",
+                "lastName": "Bollier",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "glimpseofbdd",
+        "goal": "BDD",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Daniela",
+                "lastName": "Simon",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Huber",
+                "lastName": "Roger",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Dmitrii",
+                "lastName": "Burik",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Thomas",
+                "lastName": "Seidmann",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Isabel",
+                "lastName": "Stalder",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Daniel",
+                "lastName": "Burkart",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "AllesNurGeCloud",
+        "goal": "Wir verwenden, was uns Azure im Bereich AI/ML bietet.",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Alexander",
+                "lastName": "Gassmann",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Michael",
+                "lastName": "Gisler",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Michael",
+                "lastName": "Meister",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Martin",
+                "lastName": "Weber",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "The Pirates of TensorFlow",
+        "goal": "Machine Learning mit mobile UI",
+        "motto": "Rum und Ehre",
+        "members": [
+            {
+                "firstName": "Adrian",
+                "lastName": "Mitevski",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Roland",
+                "lastName": "Rogenmoser",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Adrian",
+                "lastName": "Stalder",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Stefanie",
+                "lastName": "Vogel",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "",
+        "goal": "",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Andreas",
+                "lastName": "Plüss",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "David",
+                "lastName": "Keller",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Nadine",
+                "lastName": "Moser",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Robin",
+                "lastName": "Svahn",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Florian",
+                "lastName": "Bosshard",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "HTTP/2.0 418",
+        "goal": "Websockets verwenden",
+        "motto": "I'm a teapot",
+        "members": [
+            {
+                "firstName": "Dominik",
+                "lastName": "Schweiger",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Manuel",
+                "lastName": "Baumann",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Thomas",
+                "lastName": "Moser",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "",
+        "goal": "Kotlin, Metriken",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Fabian",
+                "lastName": "Mächler",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Christian",
+                "lastName": "Spiller",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Boris",
+                "lastName": "Ruch",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "",
+        "goal": "",
+        "motto": "",
+        "members": [
+            {
+                "firstName": "Matthias",
+                "lastName": "Kubli",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Andreas",
+                "lastName": "Scheuber",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Matthias",
+                "lastName": "Schindelholz",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Markus",
+                "lastName": "Putzi",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Elio",
+                "lastName": "Lüthi",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            },
+            {
+                "firstName": "Pablo",
+                "lastName": "Fernandez",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    }
+]

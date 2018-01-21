@@ -1,0 +1,14 @@
+ <div class="container-fluid">
+  <div class="row" *ngFor="let team of teams">
+    <div class="col">
+      <div *ngIf="team.name !== ''; else showEmpty">{{team.name}}</div>
+      <ng-template #showEmpty>-</ng-template>
+    </div>
+    <div class="col">
+      <div *ngFor="let member of team.members">
+        {{member.firstName}} {{member.lastName}}
+        <img [src]="member.imageUrl" />
+      </div>
+    </div>
+  </div>
+</div> 

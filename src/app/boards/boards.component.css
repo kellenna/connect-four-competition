@@ -1,0 +1,29 @@
+.col-1 {
+    padding: 5px;
+    /* border: 1px solid black;       */
+}
+
+.circle {
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    height: 0;
+    width: 100%;
+    padding: 50% 0;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+
+.blue {
+    background-color: #577DCC;
+}
+
+.yellow {
+    background-color: #ffeb79;
+}
+
+.red {
+    background-color: #d96666;
+}

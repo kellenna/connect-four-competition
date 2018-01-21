@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --yellow: #ffe70f;
+    --black: #000000;
+    --white: #ffffff;
+}
+
+body{
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Fira Mono', monospace;
+}
+
+h1{
+    color: var(--black);    
+    font-family: 'Anton', sans-serif;
+    font-size: calc(80% + 2vw);
+    letter-spacing: 0.5vw;
+}
+
+mark{
+    background-color: var(--yellow);   
+}
+
+a, a:visited {
+    color: var(--yellow);
+}
+
+nav {
+    font-size: 1.5vw;
+}
+
+.navbar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-outline-primary {
+  background-color: var(--black);
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 1px solid var(--yellow);
+}
+
+.btn-outline-primary.focus, 
+.btn-outline-primary:focus {
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+.navbar-toggler{
+    background-color: var(--yellow);
+}
+
+/* @media only screen and (max-width: 61.9em) {
+    body{
+        font-size: 0.75rem;
+    }
+    h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media only screen and (min-width: 61.9em) and (max-width: 74.9em) {
+    h1 {
+            font-size: 2rem;
+            letter-spacing: 3px;
+        }
+ } */

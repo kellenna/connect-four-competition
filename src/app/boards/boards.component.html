@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let name of boardNames" class="col">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            {{boards[name].boardInfo.playerX}} gegen {{boards[name].boardInfo.playerO}}
+          </h4>
+          <div *ngIf="boards[name].boardStatus.gameFinished">
+            <h6 class="card-subtitle" *ngIf="boards[name].boardStatus.winner === 'X'">
+              {{boards[name].boardInfo.playerX}} hat gewonnen!
+            </h6>
+            <h6 class="card-subtitle" *ngIf="boards[name].boardStatus.winner === 'O'">
+              {{boards[name].boardInfo.playerO}} hat gewonnen!
+            </h6>
+          </div>
+          <div class="card-text">
+            <div class="container">
+              <div *ngFor="let col of boards[name].grid; let i = index" class="row">
+                <div *ngFor="let val of col; let j = index" class="col-1 blue">
+                  <div *ngIf="val == null"><span class="circle white">&nbsp;</span></div>
+                  <div *ngIf="val === 'X'"><span class="circle red">&nbsp;</span></div>
+                  <div *ngIf="val === 'O'"><span class="circle yellow">&nbsp;</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
