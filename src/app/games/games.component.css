@@ -10,8 +10,25 @@
     padding-left: 0;
 }
 
+.border-white-left-bottom {
+    border-left: 5px solid var(--white);
+    border-bottom: 5px solid var(--white);
+    padding-right: 0;
+}
+
+.border-white-right-top {
+    border-right: 5px solid var(--white);
+    border-top: 5px solid var(--white);
+    padding-left: 0;
+}
+
 .content-yellow {
     background-color: var(--yellow);
+    color: var(--black);
+}
+
+.content-white {
+    background-color: var(--white);
     color: var(--black);
 }
 
@@ -30,6 +47,8 @@
     height: 60px;
     width: 60px;
     margin: 5px;
+    padding: 0;
+    font-size: calc(40% + 2vw);
 }
 
 .font-anton {
@@ -38,5 +57,20 @@
 
 h1 {
     color: var(--yellow);
+    font-size: calc(10% + 2vw);
     margin-bottom: 0;
+}
+
+.winner {
+    color: var(--white);
+    font-weight: 600;
+}
+
+h1.winner{
+    font-size: calc(90% + 2vw);
+    letter-spacing: 0.5vw;
+}
+
+hr {
+    border-top: 5px dotted var(--yellow);
 }

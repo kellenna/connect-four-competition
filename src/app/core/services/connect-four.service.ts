@@ -24,4 +24,9 @@ export class ConnectFourService {
         return this.http.get(this.localUrl + boardName)
       .map(x => x.json());
     }
+
+    postColumn(boardName: string, colume: number, discColor: string) : Observable<Board> {
+      return this.http.post(this.localUrl + boardName + '/colume', {board: boardName, colume: colume, body: discColor})
+      .map(x => x.json());
+    }
 }

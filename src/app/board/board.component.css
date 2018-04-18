@@ -1,0 +1,45 @@
+h1 {
+    color: var(--yellow);
+}
+
+.col-1 {
+    padding: 5px;
+    /* border: 1px solid black;       */
+}
+
+.circle {
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    height: 0;
+    width: 100%;
+    padding: 50% 0;
+}
+
+.empty {
+    background-color: var(--black);
+}
+
+.board {
+    background-color: var(--yellow);
+}
+
+.token-playerO {
+    background-color: #878786;
+}
+
+.token-playerX {
+    background-color: #fa7d19;
+}
+
+.playerO {
+    color: #878786;
+}
+
+.playerX {
+    color: #fa7d19;
+}
+
+.card {
+    background-color: var(--black);
+}

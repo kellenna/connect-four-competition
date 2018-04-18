@@ -7,6 +7,7 @@ export interface Board {
 export interface BoardInfo {
     playerX: string;
     playerO: string;
+    round: number;
 }
 
 export interface BoardStatus {
