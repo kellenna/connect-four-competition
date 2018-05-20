@@ -8,7 +8,7 @@
 body{
     background-color: var(--black);
     color: var(--white);
-    font-family: 'Fira Mono', monospace;
+    font-family: 'Anton', sans-serif;
 }
 
 h1{

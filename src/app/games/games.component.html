@@ -1,131 +1,31 @@
-<div class="container-fluid">
-  <!-- Runde 2 -->
-  <div class="row">&nbsp;</div> 
+<div class="container-fluid" *ngFor="let round of rounds">
   <div class="row">
-      <div class="col"><hr></div>
-      <div class="col-auto"><h1>Runde 2</h1></div>
-      <div class="col"><hr></div>
+    <div class="col">
+      <hr>
+    </div>
+    <div class="col-auto">
+      <h1>Runde {{round}}</h1>
+    </div>
+    <div class="col">
+      <hr>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-12 col-md-6 border-white-left-bottom perc90">
+  <div class="row" *ngFor="let match of matches[round]">
+    <div class="col-12 col-md-6 progress-white left perc100">
       <div class="d-inline-flex h-100 align-items-center">
-        <h2>4Qt</h2>
+        <h2>{{match.team1}}</h2>
       </div>
-      <div class="content-white noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle color-white">50</button>
+      <div class="content-white d-inline-flex float-right">
+        <button class="btn btn-circle color-white">{{match.team1Won}}</button>
       </div>
     </div>
-    <div class="col-12 col-md-6 border-yellow-right-top perc90">
-      <div class="content-yellow noborder-right d-inline-flex">
-        <button class="btn btn-circle">40</button>
+    <div class="col-12 col-md-6 progress-yellow right perc100">
+      <div class="content-yellow d-inline-flex">
+        <button class="btn btn-circle">{{match.team2Won}}</button>
       </div>
       <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2>Friendly fire</h2>
+        <h2 class="strikethrough">{{match.team2}}</h2>
       </div>
     </div>
   </div>
-  <div class="row">&nbsp;</div> 
-  <div class="row">
-    <div class="col-12 col-md-6 border-yellow-left-bottom perc100">
-      <div class="d-inline-flex h-100 align-items-center">
-        <h2 class="strikethrough">AllesNurGeCloud</h2>
-      </div>
-      <div class="content-yellow noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle">0</button>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 border-white-right-top perc100">
-      <div class="content-white noborder-right d-inline-flex">
-        <button class="btn btn-circle color-white">100</button>
-      </div>
-      <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2>The Pirates of Tensor Flow</h2>
-      </div>
-    </div>
-  </div>
-  <div class="row">&nbsp;</div> 
-  <div class="row">
-    <div class="col-12 col-md-6 border-white-left-bottom perc100">
-      <div class="d-inline-flex h-100 align-items-center">
-        <h2>Play4Xam</h2>
-      </div>
-      <div class="content-white noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle color-white">77</button>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 border-yellow-right-top perc100">
-      <div class="content-yellow noborder-right d-inline-flex">
-        <button class="btn btn-circle">23</button>
-      </div>
-      <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2 class="strikethrough">HTTP/2.0 418</h2>
-      </div>
-    </div>
-  </div>
-  <div class="row">&nbsp;</div> 
-  <div class="row">
-    <div class="col-12 col-md-6 border-white-left-bottom perc70">
-      <div class="d-inline-flex h-100 align-items-center">
-        <h2 class="color-white">Genossen</h2>
-      </div>
-      <div class="content-white noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle color-white">67</button>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 border-yellow-right-top perc70">
-      <div class="content-yellow noborder-right d-inline-flex">
-        <button class="btn btn-circle">19</button>
-      </div>
-      <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2>LabAttack</h2>
-      </div>
-    </div>
-  </div>
-  <!-- End Runde 2 -->
-  <!-- Runde 1-->
-  <div class="row">&nbsp;</div> 
-  <div class="row">&nbsp;</div> 
-  <div class="row">
-      <div class="col"><hr></div>
-      <div class="col-auto"><h1>Runde 1</h1></div>
-      <div class="col"><hr></div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-md-6 border-white-left-bottom perc100">
-      <div class="d-inline-flex h-100 align-items-center">
-        <h2>4Qt</h2>
-      </div>
-      <div class="content-white noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle color-white">100</button>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 border-yellow-right-top perc100">
-      <div class="content-yellow noborder-right d-inline-flex">
-        <button class="btn btn-circle">0</button>
-      </div>
-      <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2 class="strikethrough">QuTies</h2>
-      </div>
-    </div>
-  </div> 
-  <div class="row">&nbsp;</div> 
-  <div class="row">
-    <div class="col-12 col-md-6 border-white-left-bottom perc100">
-      <div class="d-inline-flex h-100 align-items-center">
-        <h2>Friendly fire</h2>
-      </div>
-      <div class="content-white noborder-left d-inline-flex float-right">
-        <button class="btn btn-circle color-white">99</button>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 border-yellow-right-top perc100">
-      <div class="content-yellow noborder-right d-inline-flex">
-        <button class="btn btn-circle">1</button>
-      </div>
-      <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2 class="strikethrough">glimpseofbdd</h2>
-      </div>
-    </div>
-  </div>
-  <!-- End Runde 1 -->
 </div>
