@@ -11,20 +11,20 @@
     </div>
   </div>
   <div class="row" *ngFor="let match of matches[round]">
-    <div class="col-12 col-md-6 progress-white left perc{{getPerc(match)}}">
+    <div class="col-12 col-md-6 progress-{{getColor(match, true)}} left perc{{getPerc(match)}}">
       <div class="d-inline-flex h-100 align-items-center">
-        <h2>{{match.team1}}</h2>
+        <h2 class="{{getLooserClass(match, true)}}">{{match.team1}}</h2>
       </div>
-      <div class="content-white d-inline-flex float-right">
-        <button class="btn btn-circle color-white">{{match.team1Won}}</button>
+      <div class="content-{{getColor(match, true)}} d-inline-flex float-right">
+        <button class="btn btn-circle color-{{getColor(match, true)}}">{{match.team1Won}}</button>
       </div>
     </div>
-    <div class="col-12 col-md-6 progress-yellow right perc{{getPerc(match)}}">
-      <div class="content-yellow d-inline-flex">
-        <button class="btn btn-circle">{{match.team2Won}}</button>
+    <div class="col-12 col-md-6 progress-{{getColor(match, false)}} right perc{{getPerc(match)}}">
+      <div class="content-{{getColor(match, false)}} d-inline-flex">
+        <button class="btn btn-circle color-{{getColor(match, false)}}">{{match.team2Won}}</button>
       </div>
       <div class="d-inline-flex h-100 align-items-center float-right">
-        <h2 class="strikethrough">{{match.team2}}</h2>
+        <h2 class="{{getLooserClass(match, false)}}">{{match.team2}}</h2>
       </div>
     </div>
   </div>

@@ -40,4 +40,26 @@ export class GamesComponent implements OnInit {
     return perc.toString();
   }
 
+  getColor(match: Match, isTeam1: boolean) : string {
+    if(isTeam1) {
+      return match.team1Won > match.team2Won ? 'white' : 'yellow';
+    }
+    return match.team2Won > match.team1Won ? 'white' : 'yellow';
+  }
+
+  getLooserClass(match: Match, isTeam1) {
+    if(match.open === 0) {
+      if(isTeam1) {
+        if(match.team1Won < match.team2Won) {
+          return 'strikethrough';
+        }
+      }
+      else {
+        if(match.team2Won < match.team1Won) {
+          return 'strikethrough';
+        }
+      }
+    }
+    return '';
+  }
 }
