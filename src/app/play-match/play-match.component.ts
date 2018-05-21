@@ -26,20 +26,34 @@ export class PlayMatchComponent implements OnInit {
   }
 
   play(boards: string[], index: number) {
-    if(index > boards.length) {
+    if(index >= boards.length) {
       return;
     }
-    this.sleep(100).then(() => {
-      this.playBoard(boards[index], 1);
+    this.sleep(10).then(() => {
+      this.playBoard(boards[index], 1, [6, 6, 6, 6, 6, 6, 6]);
       this.play(boards, index+1);
     });
   }
 
-  playBoard(boardName: string, index: number) {
-    var column = 3;
+  playBoard(boardName: string, index: number, columns: number[]) {
+    var column = Math.floor(Math.random() * 7);
+    if(columns[column] === 0) {
+      var isColumnFound = false;
+      for(var i = 0; i < columns.length; i++) {
+        if(columns[i] > 0) {
+          column = i;
+          isColumnFound = true;
+          break;
+        }
+      }
+      if(!isColumnFound) {
+        return;
+      }
+    }
+    columns[column] = columns[column] - 1;
+
     var discColor = 'x';
     if (index % 2 === 0) {
-      column = 4;
       discColor = 'o';
     }
 
@@ -49,7 +63,7 @@ export class PlayMatchComponent implements OnInit {
         return;
       }
 
-      this.playBoard(boardName, index + 1);
+      this.playBoard(boardName, index + 1, columns);
     });
   }
 

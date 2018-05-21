@@ -44,7 +44,7 @@ export class GamesComponent implements OnInit {
   getPerc(match: Match) : string {
     var max = match.draw + match.open + match.team1Won + match.team2Won;
     var current = match.team1Won + match.team2Won + match.draw;
-    var perc = Math.round(current * 100 / max / 10) * 10;
+    var perc = Math.floor(current * 100 / max / 10) * 10;
     return perc.toString();
   }
 
