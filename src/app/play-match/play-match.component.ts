@@ -11,7 +11,7 @@ import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group
 export class PlayMatchComponent implements OnInit {
 
   numberOfGamesPlayed: number = 0;
-  model: PlayMatch = { round: 0, team1: '', team2: '', matches: 0 };
+  model: PlayMatch = { round: null, team1: '', team2: '', matches: null };
 
   constructor(private connectFourService: ConnectFourService) { }
 

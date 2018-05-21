@@ -17,6 +17,7 @@ import { BoardsModule } from "./boards/boards.module";
 import { BoardModule } from "./board/board.module";
 import { TeamsModule } from "./teams/teams.module";
 import { PlayMatchModule } from "./play-match/play-match.module";
+import { MatchModule } from "./match/match.module";
 import { TeamsService } from "./core/services/teams.service";
 
 @NgModule({
@@ -35,7 +36,8 @@ import { TeamsService } from "./core/services/teams.service";
     GamesModule,
     GamesmockupModule,
     TeamsModule,
-    PlayMatchModule
+    PlayMatchModule,
+    MatchModule
   ],
   providers: [
     ConnectFourService, 
