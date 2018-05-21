@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BoardsComponent } from './boards/boards.component';
@@ -15,6 +16,7 @@ import { GamesmockupModule } from "./gamesmockup/gamesmockup.module";
 import { BoardsModule } from "./boards/boards.module";
 import { BoardModule } from "./board/board.module";
 import { TeamsModule } from "./teams/teams.module";
+import { PlayMatchModule } from "./play-match/play-match.module";
 import { TeamsService } from "./core/services/teams.service";
 
 @NgModule({
@@ -25,13 +27,15 @@ import { TeamsService } from "./core/services/teams.service";
     CommonModule,
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     HttpModule,
     NgbModule.forRoot(),
     BoardsModule,
     BoardModule,
     GamesModule,
     GamesmockupModule,
-    TeamsModule
+    TeamsModule,
+    PlayMatchModule
   ],
   providers: [
     ConnectFourService, 

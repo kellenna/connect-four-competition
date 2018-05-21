@@ -27,12 +27,17 @@ export class ConnectFourService {
     }
 
     postColumn(boardName: string, colume: number, discColor: string) : Observable<Board> {
-      return this.http.post(this.azureUrl + "boards/" + boardName + '/colume', {board: boardName, colume: colume, body: discColor})
+      return this.http.post(this.azureUrl + "boards/" + boardName + '/' + colume, discColor)
       .map(x => x.json());
     }
 
     getMatches() : Observable<Match[]> {
       return this.http.get(this.azureUrl + "match/")
+      .map(x => x.json());
+    }
+
+    postMatch(pRound: number, team1Name: string, team2Name: string, numberOfMatches: number) : Observable<Match> {
+      return this.http.post(this.azureUrl + "match/", {round: pRound, team1: team1Name, team2: team2Name, matches: numberOfMatches})
       .map(x => x.json());
     }
 }

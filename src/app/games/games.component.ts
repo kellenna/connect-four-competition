@@ -15,22 +15,30 @@ export class GamesComponent implements OnInit {
 
   rounds: string[] = [];
   matches: { [Key: string]: Match[] } = {};
+  matchesById: { [Key: string]: Match } = {};
 
   constructor(private connectFourService: ConnectFourService) { }
 
   ngOnInit() {
-    //IntervalObservable.create(this.interval).subscribe(() => {
+    IntervalObservable.create(this.interval).subscribe(() => {
       this.connectFourService.getMatches().subscribe(matches => {
-        for(let match of matches) {
+        for(let match of matches) {          
           var round = match.boards[0].substring(0, 1);
           if(this.rounds.indexOf(round) < 0) {
             this.rounds.push(round);
             this.matches[round] = [];
           }
-          this.matches[round].push(match);
+          var indexOfMatch = this.matches[round].findIndex(m => m.team1 === match.team1 && m.team2 === match.team2);
+          if(indexOfMatch === -1) {
+            this.matches[round].push(match);
+          }
+          else {
+            this.matches[round][indexOfMatch] = match;
+          }
         }
+        this.rounds.sort((a, b):number => b > a ? 1 : -1);
       });
-    //});
+    });
   }
 
   getPerc(match: Match) : string {
