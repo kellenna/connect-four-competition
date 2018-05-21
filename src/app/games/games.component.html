@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="row" *ngFor="let match of matches[round]">
-    <div class="col-12 col-md-6 progress-white left perc100">
+    <div class="col-12 col-md-6 progress-white left perc{{getPerc(match)}}">
       <div class="d-inline-flex h-100 align-items-center">
         <h2>{{match.team1}}</h2>
       </div>
@@ -19,7 +19,7 @@
         <button class="btn btn-circle color-white">{{match.team1Won}}</button>
       </div>
     </div>
-    <div class="col-12 col-md-6 progress-yellow right perc100">
+    <div class="col-12 col-md-6 progress-yellow right perc{{getPerc(match)}}">
       <div class="content-yellow d-inline-flex">
         <button class="btn btn-circle">{{match.team2Won}}</button>
       </div>
