@@ -1,32 +1,75 @@
 <div class="container">
   <div class="row">
-      <div class="card">
-        <div class="card-block">
-          <h1 class="card-title">
-            <span class="playerX">{{board.boardInfo.playerX}}</span><br/> 
-            gegen <br/>
-            <span class="playerO">{{board.boardInfo.playerO}}</span>
-          </h1>
-          <div *ngIf="board.boardStatus.gameFinished">
-            <h6 class="card-subtitle" *ngIf="board.boardStatus.winner === 'X'">
-              {{board.boardInfo.playerX}} hat gewonnen!
-            </h6>
-            <h6 class="card-subtitle" *ngIf="board.boardStatus.winner === 'O'">
-              {{board.boardInfo.playerO}} hat gewonnen!
-            </h6>
-          </div>
-          <div class="card-text">
-            <div class="container">
-              <div *ngFor="let col of board.grid; let i = index" class="row">
-                <div *ngFor="let val of col; let j = index" class="col-1 board" (click)="columnClicked(j)">
-                  <div *ngIf="val == null"><span class="circle empty">&nbsp;</span></div>
-                  <div *ngIf="val === 'X'"><span class="circle token-playerX">&nbsp;</span></div>
-                  <div *ngIf="val === 'O'"><span class="circle token-playerO">&nbsp;</span></div>
+    <input [(ngModel)]="searchTeam" placeholder="Suche nach Team">
+  </div>
+  <div class="row">
+    <div class="list-group">
+      <a class="list-group-item {{isActiveMatch(match)}}" href="#" (click)="!!selectMatch(match)" *ngFor="let match of matches | matchfilter : searchTeam">
+        <span class="badge badge-pill badge-primary">Runde {{match.round}}</span>
+        &nbsp;{{match.team1}} vs. {{match.team2}}
+      </a>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedMatch !== null">
+    <div class="list-group">
+      <a class="list-group-item {{isActiveBoard(board)}}" href="#" (click)="!!selectBoard(board)" *ngFor="let board of selectedMatch.boards">
+        {{board}}
+      </a>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedMatch !== null">
+    <div class="list-group">
+      <a class="list-group-item {{isActiveTeam(selectedMatch.team1)}}" href="#" (click)="!!selectTeam(selectedMatch.team1)">
+        {{selectedMatch.team1}}
+      </a>
+      <a class="list-group-item {{isActiveTeam(selectedMatch.team2)}}" href="#" (click)="!!selectTeam(selectedMatch.team2)">
+        {{selectedMatch.team2}}
+      </a>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedBoard !== null && selectedTeam !== null && board !== null">
+    <div class="card">
+      <div class="card-block">
+        <h1 class="card-title">
+          <span class="playerX">{{board.boardInfo.playerX}}</span>
+          <br/> gegen
+          <br/>
+          <span class="playerO">{{board.boardInfo.playerO}}</span>
+        </h1>
+        <div *ngIf="board !== null && !board.boardStatus.gameFinished">
+          <h6 class="card-subtitle" *ngIf="isMyTurn">
+            Du bist am Zug Spieler {{selectedTeam}}
+          </h6>
+          <h6 class="card-subtitle" *ngIf="!isMyTurn">
+              Spieler {{getOtherTeam()}} ist am Zug. Bitte warten ...
+          </h6>
+        </div>
+        <div *ngIf="board !== null && board.boardStatus.gameFinished">
+          <h6 class="card-subtitle" *ngIf="board.boardStatus.winner === 'X'">
+            {{board.boardInfo.playerX}} hat gewonnen!
+          </h6>
+          <h6 class="card-subtitle" *ngIf="board.boardStatus.winner === 'O'">
+            {{board.boardInfo.playerO}} hat gewonnen!
+          </h6>
+        </div>
+        <div *ngIf="board !== null" class="card-text">
+          <div class="container">
+            <div *ngFor="let col of board.grid; let i = index" class="row">
+              <div *ngFor="let val of col; let j = index" class="col-1 board" (click)="columnClicked(j)">
+                <div *ngIf="val == null || val === '' || val === ' '">
+                  <span class="circle empty">&nbsp;</span>
+                </div>
+                <div *ngIf="val === 'X'">
+                  <span class="circle token-playerX">&nbsp;</span>
+                </div>
+                <div *ngIf="val === 'O'">
+                  <span class="circle token-playerO">&nbsp;</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>

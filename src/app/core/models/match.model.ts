@@ -1,4 +1,5 @@
 export interface Match {
+    round: string;
     team1: string;
     team2: string;
     boards: string[];
