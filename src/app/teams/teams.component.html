@@ -1,5 +1,5 @@
- <div class="container-fluid">
-  <div class="row" *ngFor="let team of teams">
+<div class="container-fluid">
+  <div class="row" *ngFor="let team of teams; let odd = odd; let even = even" [class.black-bg]="odd" [class.yellow-bg]="even">
     <div class="col">
       <div *ngIf="team.name !== ''; else showEmpty">{{team.name}}</div>
       <ng-template #showEmpty>-</ng-template>
@@ -7,8 +7,36 @@
     <div class="col">
       <div *ngFor="let member of team.members">
         {{member.firstName}} {{member.lastName}}
-        <img [src]="member.imageUrl" />
+        <!-- <img [src]="member.imageUrl" /> -->
+      </div>
+    </div>
+    <div class="col">
+      <div *ngIf="stats !== null && stats.teamStats !== null && stats.teamStats[team.name] !== undefined">
+        Spiele gespielt: {{stats.teamStats[team.name].gamesPlayed}}
+        <br/> Davon gewonnen: {{stats.teamStats[team.name].wonGames.gamesTotal}}
+        <br/> Davon verloren: {{stats.teamStats[team.name].lostGames.gamesTotal}}
+        <br/> Unentschieden: {{stats.teamStats[team.name].drawGames.gamesTotal}}
+      </div>
+    </div>
+    <div class="col">
+      <div *ngIf="stats !== null && stats.teamStats !== null && stats.teamStats[team.name] !== undefined">
+        Schnellster Sieg:
+        <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}">
+          {{stats.teamStats[team.name].wonGames.shortestGame}}
+        </a>
+        <br/>
+        Härteste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}">
+          {{stats.teamStats[team.name].lostGames.longestGame}}
+        </a>
+        <br/>
+        Schnellstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}">
+          {{stats.teamStats[team.name].drawGames.shortestGame}}
+        </a>
+        <br/>
+        Langsamstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}">
+          {{stats.teamStats[team.name].drawGames.longestGame}}
+        </a>
       </div>
     </div>
   </div>
-</div> 
+</div>

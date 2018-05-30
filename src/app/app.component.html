@@ -14,16 +14,16 @@
           <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active btn-outline-primary" routerLink="/games">Games</a>
+                <a class="nav-link {{isActive('/games')}} btn-outline-primary" routerLink="/games">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn-outline-primary" routerLink="/teams">Teams</a>
+                <a class="nav-link {{isActive('/teams')}} btn-outline-primary" routerLink="/teams">Teams</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn-outline-primary" routerLink="/board">Board</a>
+                <a class="nav-link {{isActive('/board')}} btn-outline-primary" routerLink="/board">Board</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn-outline-primary" routerLink="/match">Match</a>
+                <a class="nav-link {{isActive('/match')}} btn-outline-primary" routerLink="/match">Match</a>
               </li>
             </ul>
           </div>

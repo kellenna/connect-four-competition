@@ -1,0 +1,17 @@
+.yellow-bg {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+.black-bg {
+    background-color: var(--black);
+    color: var(--yellow);
+}
+
+.yellow-bg a {
+    color: var(--black);
+}
+
+.black-bg a {
+    color: var(--yellow);
+}
