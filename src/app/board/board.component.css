@@ -45,8 +45,41 @@ h1 {
 }
 
 .list-group{
-    max-height: 300px;
-    margin-bottom: 10px;
+    max-height: 200px;
+    /* width: 200px; */
+    /* margin-bottom: 10px; */
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+.list-group-item {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 1px solid var(--black);
+    height: auto;
+    width: auto;
+}
+
+.list-group-item.active {
+    background-color: var(--black);
+    color: var(--yellow);
+}
+
+.badge-primary {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.card-header {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+.active .badge-primary {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+div[id='accordion'] {
+    width: 100%;
 }

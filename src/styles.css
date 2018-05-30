@@ -62,6 +62,33 @@ nav {
     background-color: var(--yellow);
 }
 
+button, .btn-link {
+    font-family: 'Anton', sans-serif;
+    color: var(--black);
+    border: none;
+}
+
+button:visited, .btn-link:visited,
+button:focus, .btn-link:focus {
+    color: var(--black);
+    border: none;
+}
+
+button:hover, .btn-link:hover {
+    color: var(--white);
+    border: none;
+    text-decoration: none;
+}
+
+input[type='text'] {
+    font-family: 'Anton', sans-serif;
+    color: var(--black);
+}
+
+::placeholder {
+    color: var(--yellow);
+}
+
 /* @media only screen and (max-width: 61.9em) {
     body{
         font-size: 0.75rem;

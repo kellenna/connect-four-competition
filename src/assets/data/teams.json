@@ -145,13 +145,6 @@
                 "imageUrl": ""
             },
             {
-                "firstName": "Thomas",
-                "lastName": "Seidmann",
-                "branch": "",
-                "kpz": "",
-                "imageUrl": ""
-            },
-            {
                 "firstName": "Isabel",
                 "lastName": "Stalder",
                 "branch": "",
@@ -238,7 +231,7 @@
         ]
     },
     {
-        "name": "",
+        "name": "Play4Xam",
         "goal": "",
         "motto": "",
         "members": [
@@ -278,37 +271,9 @@
                 "imageUrl": ""
             }
         ]
-    },
+    },    
     {
-        "name": "HTTP/2.0 418",
-        "goal": "Websockets verwenden",
-        "motto": "I'm a teapot",
-        "members": [
-            {
-                "firstName": "Dominik",
-                "lastName": "Schweiger",
-                "branch": "",
-                "kpz": "",
-                "imageUrl": ""
-            },
-            {
-                "firstName": "Manuel",
-                "lastName": "Baumann",
-                "branch": "",
-                "kpz": "",
-                "imageUrl": ""
-            },
-            {
-                "firstName": "Thomas",
-                "lastName": "Moser",
-                "branch": "",
-                "kpz": "",
-                "imageUrl": ""
-            }
-        ]
-    },
-    {
-        "name": "",
+        "name": "Genossen",
         "goal": "Kotlin, Metriken",
         "motto": "",
         "members": [
@@ -332,11 +297,18 @@
                 "branch": "",
                 "kpz": "",
                 "imageUrl": ""
+            },
+            {
+                "firstName": "Pascal",
+                "lastName": "Keusch",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
             }
         ]
     },
     {
-        "name": "",
+        "name": "LabAttack",
         "goal": "",
         "motto": "",
         "members": [

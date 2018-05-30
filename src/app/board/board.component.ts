@@ -15,6 +15,7 @@ export class BoardComponent implements OnInit {
   matches: Match[];
   board: Board = null;
   searchTeam: string = '';
+  searchBoard: string = '';
   selectedMatch: Match = null;
   selectedBoard: string = null;
   selectedTeam: string = null;
