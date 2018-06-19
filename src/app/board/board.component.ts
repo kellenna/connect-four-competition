@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ConnectFourService } from '../core/services/connect-four.service'
 import { Board } from '../core/models/board.model';
@@ -23,14 +24,32 @@ export class BoardComponent implements OnInit {
   private interval: number = 1000;
   private timerObservable: Observable<number>;
 
-  constructor(private connectFourService: ConnectFourService) { }
+  constructor(private connectFourService: ConnectFourService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let name = this.route.snapshot.paramMap.get('name');
+    if(name !== null && name !== undefined && name !== '') {
+      this.selectedBoard = name;
+    }
+    let team = this.route.snapshot.paramMap.get('team');
+    if(team !== null && team !== undefined && team !== '') {
+      this.selectedTeam = team;
+    }
+
     IntervalObservable.create(this.interval).subscribe(() => {
       this.getBoard();
     });
 
-    this.connectFourService.getMatches().subscribe(m => { this.matches = m; });
+    this.connectFourService.getMatches().subscribe(m => { 
+      this.matches = m;
+      if(name !== null && name !== undefined && name !== '') {
+        for(let match of this.matches) {
+          if(match.boards.indexOf(name) > -1) {
+            this.selectedMatch = match;
+          }
+        }
+      }
+    });
   }
 
   setBoard(board: Board) {

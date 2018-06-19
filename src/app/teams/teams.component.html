@@ -21,19 +21,19 @@
     <div class="col">
       <div *ngIf="stats !== null && stats.teamStats !== null && stats.teamStats[team.name] !== undefined">
         Schnellster Sieg:
-        <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}">
+        <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].wonGames.shortestGame}}
         </a>
         <br/>
-        Härteste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}">
+        Härteste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].lostGames.longestGame}}
         </a>
         <br/>
-        Schnellstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}">
+        Schnellstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].drawGames.shortestGame}}
         </a>
         <br/>
-        Langsamstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}">
+        Langsamstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].drawGames.longestGame}}
         </a>
       </div>
