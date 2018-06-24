@@ -21,6 +21,7 @@ export class BoardComponent implements OnInit {
   selectedBoard: string = null;
   selectedTeam: string = null;
   isMyTurn: boolean = false;
+  showFilterClass: string = "";
   private interval: number = 1000;
   private timerObservable: Observable<number>;
 
@@ -34,6 +35,11 @@ export class BoardComponent implements OnInit {
     let team = this.route.snapshot.paramMap.get('team');
     if(team !== null && team !== undefined && team !== '') {
       this.selectedTeam = team;
+    }
+
+    this.showFilterClass = "show";
+    if(this.selectedBoard !== null && this.selectedTeam !== null) {
+      this.showFilterClass = "";
     }
 
     IntervalObservable.create(this.interval).subscribe(() => {

@@ -2,9 +2,19 @@ h1 {
     color: var(--yellow);
 }
 
-.col-1 {
+.col {
     padding: 5px;
     /* border: 1px solid black;       */
+}
+
+.container {
+    margin: 0 15px;
+    padding: 0;
+}
+
+.card-text > .container {
+    max-width: 780px;
+    padding: 0;
 }
 
 .circle {
@@ -46,10 +56,12 @@ h1 {
 
 .list-group{
     max-height: 200px;
-    /* width: 200px; */
+    width: 300px;
     /* margin-bottom: 10px; */
-    overflow:scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    display: block;
 }
 
 .list-group-item {
@@ -58,6 +70,7 @@ h1 {
     border: 1px solid var(--black);
     height: auto;
     width: auto;
+    padding: 5px;
 }
 
 .list-group-item.active {
@@ -80,6 +93,44 @@ h1 {
     color: var(--black);
 }
 
-div[id='accordion'] {
-    width: 100%;
+.sidebar {
+    position: fixed;
+    top: 164px;
+    right: 0;
+    width: 320px;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid var(--yellow);
+    border-radius: 5px;
+    background-color: var(--black);
+}
+
+input {
+    width: 300px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+#filterToggle {
+    position: fixed;
+    top: 139px;
+    right: 15px;
+}
+
+.card-block {
+    padding: 0;
+}
+
+.btn, .btn-primary {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: none;
+}
+.btn:active, .btn:hover,
+.btn:focus, .btn:visited,
+.btn-primary:active, .btn-primary:hover,
+.btn-primary:focus, .btn-primary:visited {
+    border: none;
 }
