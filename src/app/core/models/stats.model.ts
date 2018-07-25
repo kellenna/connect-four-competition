@@ -8,6 +8,7 @@ export interface TeamStat {
     wonGames: Game;
     lostGames: Game;
     drawGames: Game;
+    longestDiscDurationMs: number;
 }
 
 export interface Game {

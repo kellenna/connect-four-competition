@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">Team</div>
+    <div class="col">Spiele total</div>
+    <div class="col">Gewonnen</div>
+    <div class="col">Verloren</div>
+    <div class="col">Unentschieden</div>
+    <div class="col">Gewonnen %</div>
+    <div class="col">Verloren %</div>
+    <div class="col">Unentschieden %</div>
+  </div>
+  <div class="row" *ngFor="let teamStat of teamStats2;">
+    <div class="col">
+      {{teamStat.team}}
+    </div>
+    <div class="col">
+      {{teamStat.gamesTotal}}
+    </div>
+    <div class="col">
+      {{teamStat.wonGames}}
+    </div>
+    <div class="col">
+      {{teamStat.lostGames}}
+    </div>
+    <div class="col">
+        {{teamStat.drawGames}}
+      </div>
+    <div class="col">
+      {{teamStat.wonRatio}}%
+    </div>
+    <div class="col">
+      {{teamStat.lostRatio}}%
+    </div>
+    <div class="col">
+        {{teamStat.drawRatio}}%
+      </div>
+  </div>
+</div>
