@@ -11,29 +11,41 @@
       </div>
     </div>
     <div class="col">
-      <div *ngIf="stats !== null && stats.teamStats !== null && stats.teamStats[team.name] !== undefined">
-        Spiele gespielt: {{stats.teamStats[team.name].gamesPlayed}}
-        <br/> Davon gewonnen: {{stats.teamStats[team.name].wonGames.gamesTotal}}
-        <br/> Davon verloren: {{stats.teamStats[team.name].lostGames.gamesTotal}}
-        <br/> Unentschieden: {{stats.teamStats[team.name].drawGames.gamesTotal}}
+      <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
+        Gewonnen: {{stats.teamStats[team.name].wonRatio}}%
+        <br/> {{stats.teamStats[team.name].avgDiscsInWon}} Scheiben / Spiel
+        <br/> Verloren: {{stats.teamStats[team.name].lostRatio}}%
+        <br/> {{stats.teamStats[team.name].avgDiscsInLost}} Scheiben / Spiel
+        <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}%
+        <br/> {{stats.teamStats[team.name].avgDiscsInDraw}} Scheiben / Spiel
+        <br/> Längster Zug: {{stats.teamStats[team.name].longestDiscDurationMs}}ms
       </div>
     </div>
     <div class="col">
-      <div *ngIf="stats !== null && stats.teamStats !== null && stats.teamStats[team.name] !== undefined">
+      <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
         Schnellster Sieg:
         <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].wonGames.shortestGame}}
+        </a>
+        <br/>
+        Langsamster Sieg:
+        <a href="/board/{{stats.teamStats[team.name].wonGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.longestGameBoardName}}" target="_blank">
+          {{stats.teamStats[team.name].wonGames.longestGame}}
+        </a>
+        <br/>
+        Schnellste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}" target="_blank">
+          {{stats.teamStats[team.name].lostGames.shortestGame}}
         </a>
         <br/>
         Härteste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].lostGames.longestGame}}
         </a>
         <br/>
-        Schnellstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" target="_blank">
+        Schnellstes Unentschieden: <a *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0" href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].drawGames.shortestGame}}
         </a>
         <br/>
-        Langsamstes Unentschieden: <a href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" target="_blank">
+        Langsamstes Unentschieden: <a *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0" href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].drawGames.longestGame}}
         </a>
       </div>

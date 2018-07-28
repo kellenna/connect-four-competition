@@ -24,7 +24,7 @@ export class GamesComponent implements OnInit {
       this.connectFourService.getMatches().subscribe(matches => {
         for (let match of matches) {
           var roundMatch = match.boards[0].match(/(\d+)-[\d\D]*/);
-          if (roundMatch.length > 1) {
+          if (roundMatch !== null && roundMatch.length > 1) {
             var round = roundMatch[1];
             if (this.rounds.indexOf(round) < 0) {
               this.rounds.push(round);

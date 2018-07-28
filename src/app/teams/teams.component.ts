@@ -6,7 +6,7 @@ import { ConnectFourService } from '../core/services/connect-four.service'
 import { Match } from '../core/models/match.model';
 import { TeamsService } from "../core/services/teams.service";
 import { Team } from "../core/models/team.model";
-import { Stats, Game } from "../core/models/stats.model";
+import { Stats, IStats } from "../core/models/stats.model";
 
 @Component({
   selector: 'app-teams',
@@ -16,7 +16,7 @@ import { Stats, Game } from "../core/models/stats.model";
 export class TeamsComponent implements OnInit {
   private interval: number = 1000;
   teams: Team[];
-  stats: Stats = null;
+  stats: Stats;
 
   constructor(private teamsService: TeamsService, private connectFourService: ConnectFourService) { }
 
@@ -27,7 +27,7 @@ export class TeamsComponent implements OnInit {
 
     IntervalObservable.create(this.interval).subscribe(() => {
       this.connectFourService.getStats().subscribe(stats => {
-        this.stats = stats;
+        this.stats = new Stats(stats);
       })
     });
   }

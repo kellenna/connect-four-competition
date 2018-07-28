@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { Board } from '../models/board.model';
 import { Match } from '../models/match.model';
-import { Stats } from '../models/stats.model';
+import { IStats } from '../models/stats.model';
 
 // azure link on: https://noser-connect-four.azurewebsites.net/
 // local on: 'http://10.0.75.1:8080/api/connect-four/boards'
@@ -42,7 +42,7 @@ export class ConnectFourService {
       .map(x => x.json());
     }
 
-    getStats() : Observable<Stats> {
+    getStats() : Observable<IStats> {
       return this.http.get(this.azureUrl + "stats/")
       .map(x => x.json());
     }
