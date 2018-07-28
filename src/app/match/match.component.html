@@ -1,20 +1,29 @@
-<form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="pRound">Runde</label>
-    <input type="number" class="form-control" id="pRound" [(ngModel)]="model.round" name="round">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="pRound">Runde</label>
+          <input type="number" class="form-control" id="pRound" [(ngModel)]="model.round" name="round">
+        </div>
+        <div class="form-group">
+          <label for="team1Name">Team1</label>
+          <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1">
+        </div>
+        <div class="form-group">
+          <label for="team2Name">Team1</label>
+          <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2">
+        </div>
+        <div class="form-group">
+          <label for="numberOfMatches">Anzahl Spiele</label>
+          <input type="number" class="form-control" id="numberOfMatches" [(ngModel)]="model.matches" name="matches">
+        </div>
+        <button type="submit" class="btn btn-primary">Erstelle Match</button>
+      </form>
+      <div *ngIf="isSuccess" class="alert alert-success" role="alert">Match erfolgreich erstellt.</div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <img [src]="getRound(model.round)" alt="Runde" class="img-fluid">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="team1Name">Team1</label>
-    <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1">
-  </div>
-  <div class="form-group">
-    <label for="team2Name">Team1</label>
-    <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2">
-  </div>
-  <div class="form-group">
-    <label for="numberOfMatches">Anzahl Spiele</label>
-    <input type="number" class="form-control" id="numberOfMatches" [(ngModel)]="model.matches" name="matches">
-  </div>
-  <button type="submit" class="btn btn-primary">Erstelle Match</button>
-</form>
-<div *ngIf="isSuccess" class="alert alert-success" role="alert">Match erfolgreich erstellt.</div>
+</div>

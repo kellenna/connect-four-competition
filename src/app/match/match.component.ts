@@ -25,4 +25,20 @@ export class MatchComponent implements OnInit {
     });
   }
 
+  getRound(round:number) {
+    if(round == undefined) {
+      return "./assets/img/gifs/round.gif"
+    }
+
+    var r = round.toString().substr(0, 1);
+
+    switch(r) {
+      case "1": return "./assets/img/gifs/round1.gif";
+      case "2": return "./assets/img/gifs/round2.gif";
+      case "3": return "./assets/img/gifs/round3.gif";
+      case "4": return "./assets/img/gifs/round4.gif";
+      default: return "./assets/img/gifs/round.gif";
+    }
+  }
+
 }
