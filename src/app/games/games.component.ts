@@ -16,6 +16,8 @@ export class GamesComponent implements OnInit {
   rounds: string[] = [];
   matches: { [Key: string]: Match[] } = {};
   matchesById: { [Key: string]: Match } = {};
+  isVideoVisible: boolean = false;
+  videoSrc = "";
 
   constructor(private connectFourService: ConnectFourService) { }
 
@@ -72,5 +74,23 @@ export class GamesComponent implements OnInit {
       }
     }
     return '';
+  }
+
+  showVideo(round) {
+    var r = round.toString().substr(0, 1);
+    switch(r) {
+      case "1": this.videoSrc = "./assets/img/videos/Incredibles Runde 1.mp4"; break;
+      case "2": this.videoSrc = "./assets/img/videos/Incredibles Runde 2.mp4"; break;
+      case "3": this.videoSrc = "./assets/img/videos/Incredibles Runde 3.mp4"; break;
+      case "4": this.videoSrc = "./assets/img/videos/Incredibles Runde 4.mp4"; break;
+    }
+    if(this.videoSrc !== "") {
+      window.scrollTo(0,0);
+      this.isVideoVisible = true;
+    }
+  }
+
+  hideVideo() {
+    this.isVideoVisible = false;
   }
 }
