@@ -9,6 +9,7 @@
         {{member.firstName}} {{member.lastName}}
         <!-- <img [src]="member.imageUrl" /> -->
       </div>
+      <div>Längster Zug: {{stats.teamStats[team.name].longestDiscDurationMs}}ms</div>
     </div>
     <div class="col">
       <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
@@ -18,7 +19,6 @@
         <br/> {{stats.teamStats[team.name].avgDiscsInLost}} Scheiben / Spiel
         <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}%
         <br/> {{stats.teamStats[team.name].avgDiscsInDraw}} Scheiben / Spiel
-        <br/> Längster Zug: {{stats.teamStats[team.name].longestDiscDurationMs}}ms
       </div>
     </div>
     <div class="col">
@@ -37,7 +37,7 @@
           {{stats.teamStats[team.name].lostGames.shortestGame}}
         </a>
         <br/>
-        Härteste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" target="_blank">
+        Langsamste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" target="_blank">
           {{stats.teamStats[team.name].lostGames.longestGame}}
         </a>
         <br/>

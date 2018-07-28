@@ -17,7 +17,7 @@ export interface IGame {
     longestGame: number;
     longestGameBoardName: string;
     shortestGame: number;
-    shortestGameBoardName: number;
+    shortestGameBoardName: string;
 }
 
 export class Stats implements IStats {
@@ -72,7 +72,7 @@ export class Game implements IGame {
     longestGame: number;
     longestGameBoardName: string;
     shortestGame: number;
-    shortestGameBoardName: number;
+    shortestGameBoardName: string;
 
     constructor(game: IGame) {
         Object.assign(this, game);

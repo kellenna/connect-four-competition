@@ -1,0 +1,16 @@
+.bestof .row div:nth-child(1) {
+    text-align: end;
+}
+
+.bestof .row:not(:first-child) div:nth-child(2) {
+    background: var(--yellow);
+    text-align: center;
+    color: var(--black);
+}
+
+.bestof .row div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
