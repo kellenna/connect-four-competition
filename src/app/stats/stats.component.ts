@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ConnectFourService } from '../core/services/connect-four.service'
-import { Stats, Game } from "../core/models/stats.model";
+import { Stats, IStats } from "../core/models/stats.model";
 
 @Component({
   selector: 'app-stats',
@@ -36,7 +36,7 @@ export class StatsComponent implements OnInit {
     this.teamStats2 = [];
 
     this.connectFourService.getStats().subscribe(stats => {
-      this.stats = stats;
+      this.stats = new Stats(stats);
 
       Object.keys(stats.teamStats).forEach(key => {
         let teamStat = stats.teamStats[key];
