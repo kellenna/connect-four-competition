@@ -30,15 +30,6 @@ a, a:visited {
     color: var(--yellow);
 }
 
-nav {
-    font-size: 1.5vw;
-}
-
-.navbar {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .btn-outline-primary {
   background-color: var(--black);
   border: 1px solid var(--yellow);

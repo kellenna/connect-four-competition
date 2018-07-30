@@ -94,11 +94,10 @@ h1 {
 }
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     top: 164px;
     right: 0;
     width: 320px;
-    height: 100%;
     padding: 10px;
     border: 2px solid var(--yellow);
     border-radius: 5px;
@@ -114,7 +113,7 @@ input {
 }
 
 #filterToggle {
-    position: fixed;
+    position: absolute;
     top: 139px;
     right: 15px;
 }
