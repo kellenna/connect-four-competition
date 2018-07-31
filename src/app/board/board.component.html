@@ -1,4 +1,4 @@
-<div class="card" *ngIf="selectedBoard !== null && selectedTeam !== null && board !== null">
+<div class="card" *ngIf="selectedBoard !== null && board !== null && (board.boardStatus.gameFinished || selectedTeam !== null)">
   <div class="card-block">
     <h1 class="card-title">
       <span class="playerX">{{board.boardInfo.playerX}}</span>
@@ -30,10 +30,10 @@
               <span class="circle empty">&nbsp;</span>
             </div>
             <div *ngIf="val === 'X'">
-              <span class="circle token-playerX">&nbsp;</span>
+              <span class="circle token-playerX"><img *ngIf="isWinningPosition(board, i, j)" src="./assets/img/icons/si-glyph-crown.svg"></span>
             </div>
             <div *ngIf="val === 'O'">
-              <span class="circle token-playerO">&nbsp;</span>
+              <span class="circle token-playerO"><img *ngIf="isWinningPosition(board, i, j)" src="./assets/img/icons/si-glyph-crown.svg"></span>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
       </a>
     </div>
   </div>
-  <div class="filter-group" *ngIf="selectedMatch !== null">
+  <div class="filter-group" *ngIf="board != null && !board.boardStatus.gameFinished">
     <label>Wähle dein Team</label>
     <div class="list-group">
       <a class="list-group-item {{isActiveTeam(selectedMatch.team1)}}" href="#" (click)="!!selectTeam(selectedMatch.team1)">

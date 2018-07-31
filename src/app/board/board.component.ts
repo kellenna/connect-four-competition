@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from "rxjs/Subscription"
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -23,7 +24,7 @@ export class BoardComponent implements OnInit {
   isMyTurn: boolean = false;
   showFilterClass: string = "";
   private interval: number = 1000;
-  private timerObservable: Observable<number>;
+  private timerSubscription: Subscription;
 
   constructor(private connectFourService: ConnectFourService, private route: ActivatedRoute) { }
 
@@ -42,7 +43,7 @@ export class BoardComponent implements OnInit {
       this.showFilterClass = "";
     }
 
-    IntervalObservable.create(this.interval).subscribe(() => {
+    this.timerSubscription = IntervalObservable.create(this.interval).subscribe(() => {
       this.getBoard();
     });
 
@@ -72,7 +73,10 @@ export class BoardComponent implements OnInit {
   getBoard() {
     if (this.selectedBoard !== null) {
       this.connectFourService.getBoard(this.selectedBoard).subscribe(board => {
-        this.setBoard(board);
+        if(board.boardStatus.gameFinished) {
+          this.timerSubscription.unsubscribe();
+        }     
+        this.setBoard(board);   
       });
     }
   }
@@ -86,6 +90,18 @@ export class BoardComponent implements OnInit {
     this.connectFourService.postColumn(this.selectedBoard, col, this.getDiscColor()).subscribe(board => {
       this.setBoard(board);
     })
+  }
+
+  isWinningPosition(board: Board, row: number, col: number) {
+    if(board === null || board.boardStatus === null || board.boardStatus.winningPosition === null || board.boardStatus.winningPosition.length === 0) {
+      return false;
+    }
+    for(let r of board.boardStatus.winningPosition) {
+      if(r.length === 2 && r[1] === 5 - row && r[0] === col) {
+        return true;
+      }
+    }
+    return false;
   }
 
   getDiscColor(): string {
@@ -106,6 +122,7 @@ export class BoardComponent implements OnInit {
 
   selectBoard(board: string) {
     this.selectedBoard = board;
+    this.getBoard();
   }
 
   selectTeam(team: string) {
