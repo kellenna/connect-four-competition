@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ConnectFourService } from '../core/services/connect-four.service'
+import { TeamsService } from "../core/services/teams.service";
 import { Stats, IStats, TeamStat } from "../core/models/stats.model";
+import { Team } from "../core/models/team.model";
 
 @Component({
   selector: 'app-stats',
@@ -11,6 +13,7 @@ import { Stats, IStats, TeamStat } from "../core/models/stats.model";
 export class StatsComponent implements OnInit {
   stats: Stats = null;
   teamStats: { [Key: string]: BestOfCategory };
+  staticTeams: Team[];
 
   categories(): Array<string> {
     var keys = Object.keys(StatCategory);
@@ -40,7 +43,7 @@ export class StatsComponent implements OnInit {
     let characteristic: number = 0;
     let boardName: string = null;
     let unit: string = "";
-    let shouldBeBigger:boolean = true;
+    let shouldBeBigger: boolean = true;
 
     switch (cat) {
       case "BiggestWonRatio": characteristic = teamStat.wonRatio; unit = "%"; break;
@@ -56,15 +59,24 @@ export class StatsComponent implements OnInit {
     }
 
     if ((shouldBeBigger && this.teamStats[cat].characteristic < characteristic)
-    || (!shouldBeBigger && (this.teamStats[cat].characteristic > characteristic || this.teamStats[cat].characteristic === 0))) {
+      || (!shouldBeBigger && (this.teamStats[cat].characteristic > characteristic || this.teamStats[cat].characteristic === 0))) {
       this.teamStats[cat].characteristic = characteristic;
-      this.teamStats[cat].boardName = boardName;
-      this.teamStats[cat].teamName = teamStat.name;
+      this.teamStats[cat].teamName = this.getLink(boardName, teamStat.name);
       this.teamStats[cat].unit = unit;
+    }
+    if (this.teamStats[cat].characteristic === characteristic && characteristic > 0 && this.teamStats[cat].teamName.indexOf(teamStat.name) < 0) {
+      this.teamStats[cat].teamName += "<br/>" + this.getLink(boardName, teamStat.name);
     }
   }
 
-  constructor(private connectFourService: ConnectFourService) { }
+  getLink(boardName: string, teamName: string): string {
+    if(boardName != null){
+      return "<a href='board/" + boardName + "/" + teamName + "' title='" + boardName + "' target='_blank'>" + teamName + "</a>";
+    }
+    return teamName;
+  }
+
+  constructor(private teamsService: TeamsService, private connectFourService: ConnectFourService) { }
 
   ngOnInit() {
 
@@ -72,15 +84,22 @@ export class StatsComponent implements OnInit {
       this.stats = new Stats(stats);
       this.teamStats = {};
 
-      Object.keys(stats.teamStats).forEach(key => {
-        let teamStat = this.stats.teamStats[key];
+      this.teamsService.getTeams().subscribe(teams => {
+        this.staticTeams = teams;
 
-        for (let cat of this.categories()) {
-          if (this.teamStats[cat] == undefined) {
-            this.teamStats[cat] = new BestOfCategory();
+        Object.keys(stats.teamStats).forEach(key => {
+          let teamStat = this.stats.teamStats[key];
+          const team = this.staticTeams.find(t => t.name === key);
+
+          for (let cat of this.categories()) {
+            if (this.teamStats[cat] == undefined) {
+              this.teamStats[cat] = new BestOfCategory();
+            }
+            if (team == undefined || !team.isOnlyShownWithStats) {
+              this.setCharacteristics(cat, teamStat);
+            }
           }
-          this.setCharacteristics(cat, teamStat);
-        }
+        });
       });
     });
   }
@@ -89,7 +108,6 @@ export class StatsComponent implements OnInit {
 export class BestOfCategory {
   characteristic: number = 0;
   unit: string = "";
-  boardName: string = null;
   teamName: string = null;
 
   constructor() { }

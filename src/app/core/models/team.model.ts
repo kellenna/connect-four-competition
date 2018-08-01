@@ -5,4 +5,5 @@ export interface Team {
     members: Member[];
     goal: string;
     motto: string;
+    isOnlyShownWithStats: boolean;
 }

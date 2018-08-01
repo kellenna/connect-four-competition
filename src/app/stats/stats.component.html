@@ -7,33 +7,8 @@
     <div class="col-6"></div>
   </div>
   <div class="row" *ngFor="let cat of categories()">
-    <div *ngIf="teamStats != undefined && teamStats[cat] != undefined" class="col-4 align-middle">{{teamStats[cat].teamName}}</div>
+    <div *ngIf="teamStats != undefined && teamStats[cat] != undefined" class="col-4 align-middle" [innerHtml]="teamStats[cat].teamName"></div>
     <div *ngIf="teamStats != undefined && teamStats[cat] != undefined" class="col-2">{{teamStats[cat].characteristic}}{{teamStats[cat].unit}}</div>
-    <div *ngIf="teamStats != undefined && teamStats[cat] != undefined && teamStats[cat].boardName == null" class="col-6">{{catDesc(cat)}}</div>
-    <div *ngIf="teamStats != undefined && teamStats[cat] != undefined && teamStats[cat].boardName != null" class="col-6">
-      <a href="/board/{{teamStats[cat].boardName}}/{{teamStats[cat].teamName}}" title="{{teamStats[cat].boardName}}" target="_blank">
-        {{catDesc(cat)}}
-      </a>
-    </div>
+    <div *ngIf="teamStats != undefined && teamStats[cat] != undefined" class="col-6">{{catDesc(cat)}}</div>
   </div>
 </div>
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col">Team</div>
-    <div class="col">Gewonnen</div>
-    <div class="col">Verloren</div>
-    <div class="col">Unentschieden</div>
-    <div class="col">Scheiben in Gewonnen</div>
-    <div class="col">Scheiben in Verloren</div>
-    <div class="col">Längste Zugzeit</div>
-  </div>
-  <div class="row" *ngFor="let team of teams()">
-    <div class="col">{{team}}</div>
-    <div class="col">{{stats.teamStats[team].wonRatio}}%</div>
-    <div class="col">{{stats.teamStats[team].lostRatio}}%</div>
-    <div class="col">{{stats.teamStats[team].drawRatio}}%</div>
-    <div class="col">{{stats.teamStats[team].avgDiscsInWon}}</div>
-    <div class="col">{{stats.teamStats[team].avgDiscsInLost}}</div>
-    <div class="col">{{stats.teamStats[team].longestDiscDurationMs}}</div>
-  </div>
-</div> -->
