@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectFourService } from '../core/services/connect-four.service'
+import { TeamsService } from "../core/services/teams.service";
 import { PlayMatch } from '../core/models/playmatch.model'
+import { Team } from "../core/models/team.model";
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 
 @Component({
@@ -12,10 +14,14 @@ export class PlayMatchComponent implements OnInit {
 
   numberOfGamesPlayed: number = 0;
   model: PlayMatch = { round: null, team1: '', team2: '', matches: null };
+  teams: Team[]
 
-  constructor(private connectFourService: ConnectFourService) { }
+  constructor(private teamsService: TeamsService, private connectFourService: ConnectFourService) { }
 
   ngOnInit() {
+    this.teamsService.getTeams().subscribe(teams => {
+      this.teams = teams;
+    });
   }
 
   onSubmit() {

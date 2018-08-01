@@ -3,6 +3,7 @@
         "name": "4Qt",
         "goal": "MobProgramming",
         "motto": "",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Simon",
@@ -45,6 +46,7 @@
         "name": "QuTies",
         "goal": "Run QT application on Embedded Linux",
         "motto": "Not so cute but QT",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Guy",
@@ -80,6 +82,7 @@
         "name": "FriendlyFire",
         "goal": "Neuronal network on JVM",
         "motto": "DIGITAL BRAINS!!!!",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Urs",
@@ -122,6 +125,7 @@
         "name": "glimpseofbdd",
         "goal": "BDD",
         "motto": "",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Daniela",
@@ -164,6 +168,7 @@
         "name": "MeGaGi",
         "goal": "Wir verwenden, was uns Azure im Bereich AI/ML bietet.",
         "motto": "",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Alexander",
@@ -199,6 +204,7 @@
         "name": "The Pirates of TensorFlow",
         "goal": "Machine Learning mit mobile UI",
         "motto": "Rum und Ehre",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Adrian",
@@ -232,8 +238,9 @@
     },
     {
         "name": "Play4Xam",
-        "goal": "",
+        "goal": "Motion-Events in einer App nutzen",
         "motto": "",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Andreas",
@@ -275,6 +282,7 @@
     {
         "name": "Genossen",
         "goal": "Kotlin, Metriken",
+        "isOnlyShownWithStats": false,
         "motto": "",
         "members": [
             {
@@ -309,8 +317,9 @@
     },
     {
         "name": "LabAttack",
-        "goal": "",
+        "goal": "REST Schnittstelle in LabVIEW implementieren",
         "motto": "",
+        "isOnlyShownWithStats": false,
         "members": [
             {
                 "firstName": "Matthias",
@@ -350,6 +359,21 @@
             {
                 "firstName": "Pablo",
                 "lastName": "Fernandez",
+                "branch": "",
+                "kpz": "",
+                "imageUrl": ""
+            }
+        ]
+    },
+    {
+        "name": "Mr. X",
+        "goal": "Mensch gegen Maschine",
+        "motto": "",
+        "isOnlyShownWithStats": true,
+        "members": [
+            {
+                "firstName": "Mr. X",
+                "lastName": "",
                 "branch": "",
                 "kpz": "",
                 "imageUrl": ""

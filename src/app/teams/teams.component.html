@@ -1,54 +1,64 @@
 <div class="container-fluid">
   <div class="row" *ngFor="let team of teams; let odd = odd; let even = even" [class.black-bg]="odd" [class.yellow-bg]="even">
-    <div class="col">
-      <div *ngIf="team.name !== ''; else showEmpty">{{team.name}}</div>
-      <ng-template #showEmpty>-</ng-template>
-    </div>
-    <div class="col">
-      <div *ngFor="let member of team.members">
-        {{member.firstName}} {{member.lastName}}
-        <!-- <img [src]="member.imageUrl" /> -->
+    <ng-container *ngIf="!team.isOnlyShownWithStats || (stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined)">
+      <div class="col-md-3">
+        <div *ngIf="team.name !== ''; else showEmpty">{{team.name}}</div>
+        <ng-template #showEmpty>-</ng-template>
+        <div *ngIf="team.name !== '' && team.goal !==''" class="goal">"{{team.goal}}"</div>
       </div>
-      <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">Längster Zug: {{stats.teamStats[team.name].longestDiscDurationMs}}ms</div>
-    </div>
-    <div class="col">
-      <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
-        Gewonnen: {{stats.teamStats[team.name].wonRatio}}%
-        <br/> {{stats.teamStats[team.name].avgDiscsInWon}} Scheiben / Spiel
-        <br/> Verloren: {{stats.teamStats[team.name].lostRatio}}%
-        <br/> {{stats.teamStats[team.name].avgDiscsInLost}} Scheiben / Spiel
-        <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}%
-        <br/> {{stats.teamStats[team.name].avgDiscsInDraw}} Scheiben / Spiel
+      <div class="col-md-3">
+        <div *ngFor="let member of team.members">
+          {{member.firstName}} {{member.lastName}}
+          <!-- <img [src]="member.imageUrl" /> -->
+        </div>
       </div>
-    </div>
-    <div class="col">
-      <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
-        Schnellster Sieg:
-        <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].wonGames.shortestGame}}
-        </a>
-        <br/>
-        Langsamster Sieg:
-        <a href="/board/{{stats.teamStats[team.name].wonGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.longestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].wonGames.longestGame}}
-        </a>
-        <br/>
-        Schnellste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].lostGames.shortestGame}}
-        </a>
-        <br/>
-        Langsamste Niederlage: <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].lostGames.longestGame}}
-        </a>
-        <br/>
-        Schnellstes Unentschieden: <a *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0" href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].drawGames.shortestGame}}
-        </a>
-        <br/>
-        Langsamstes Unentschieden: <a *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0" href="/board/{{stats.teamStats[team.name].drawGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].drawGames.longestGameBoardName}}" target="_blank">
-          {{stats.teamStats[team.name].drawGames.longestGame}}
-        </a>
+      <div class="col-md-3">
+        <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
+          Gewonnen: {{stats.teamStats[team.name].wonRatio}}%
+          <span *ngIf="stats.teamStats[team.name].wonGames.gamesTotal > 0">
+            <br/> {{stats.teamStats[team.name].avgDiscsInWon}} Scheiben / Spiel</span>
+          <br/> Verloren: {{stats.teamStats[team.name].lostRatio}}%
+          <span *ngIf="stats.teamStats[team.name].lostGames.gamesTotal > 0">
+            <br/> {{stats.teamStats[team.name].avgDiscsInLost}} Scheiben / Spiel</span>
+          <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}%
+        </div>
       </div>
-    </div>
+      <div class="col-md-3">
+        <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
+          <span *ngIf="stats.teamStats[team.name].wonGames.gamesTotal > 0">
+            Schnellster Sieg:
+            <a href="/board/{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.shortestGameBoardName}}"
+              target="_blank">
+              {{stats.teamStats[team.name].wonGames.shortestGame}}
+            </a>
+            <br/> Langsamster Sieg:
+            <a href="/board/{{stats.teamStats[team.name].wonGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].wonGames.longestGameBoardName}}"
+              target="_blank">
+              {{stats.teamStats[team.name].wonGames.longestGame}}
+            </a>
+          </span>
+          <span *ngIf="stats.teamStats[team.name].lostGames.gamesTotal > 0">
+            <br/> Schnellste Niederlage:
+            <a href="/board/{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.shortestGameBoardName}}"
+              target="_blank">
+              {{stats.teamStats[team.name].lostGames.shortestGame}}
+            </a>
+            <br/> Langsamste Niederlage:
+            <a href="/board/{{stats.teamStats[team.name].lostGames.longestGameBoardName}}/{{team.name}}" title="{{stats.teamStats[team.name].lostGames.longestGameBoardName}}"
+              target="_blank">
+              {{stats.teamStats[team.name].lostGames.longestGame}}
+            </a>
+          </span>
+          <span *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0">
+            <br/> Unentschieden:
+            <a *ngIf="stats.teamStats[team.name].drawGames.gamesTotal > 0" href="/board/{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}/{{team.name}}"
+              title="{{stats.teamStats[team.name].drawGames.shortestGameBoardName}}" target="_blank">
+              {{stats.teamStats[team.name].drawGames.shortestGame}}
+            </a>
+          </span>
+          <br/>Längster Zug: {{stats.teamStats[team.name].longestDiscDurationMs}}ms
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

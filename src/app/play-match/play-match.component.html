@@ -5,11 +5,11 @@
   </div>
   <div class="form-group">
     <label for="team1Name">Team1</label>
-    <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1">
+    <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1" list="teamNames">
   </div>
   <div class="form-group">
     <label for="team2Name">Team1</label>
-    <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2">
+    <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2" list="teamNames">
   </div>
   <div class="form-group">
     <label for="numberOfMatches">Anzahl Spiele</label>
@@ -18,3 +18,6 @@
   <button type="submit" class="btn btn-primary">Starte Match</button>
 </form>
 <div>Anzahl Spiele gespielt: {{numberOfGamesPlayed}}</div>
+<datalist id="teamNames">
+  <option *ngFor="let team of teams" [value]="team.name">
+</datalist>
