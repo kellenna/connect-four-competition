@@ -30,16 +30,16 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     let name = this.route.snapshot.paramMap.get('name');
-    if(name !== null && name !== undefined && name !== '') {
+    if (name !== null && name !== undefined && name !== '') {
       this.selectedBoard = name;
     }
     let team = this.route.snapshot.paramMap.get('team');
-    if(team !== null && team !== undefined && team !== '') {
+    if (team !== null && team !== undefined && team !== '') {
       this.selectedTeam = team;
     }
 
     this.showFilterClass = "show";
-    if(this.selectedBoard !== null && this.selectedTeam !== null) {
+    if (this.selectedBoard !== null && this.selectedTeam !== null) {
       this.showFilterClass = "";
     }
 
@@ -47,11 +47,11 @@ export class BoardComponent implements OnInit {
       this.getBoard();
     });
 
-    this.connectFourService.getMatches().subscribe(m => { 
+    this.connectFourService.getMatches().subscribe(m => {
       this.matches = m;
-      if(name !== null && name !== undefined && name !== '') {
-        for(let match of this.matches) {
-          if(match.boards.indexOf(name) > -1) {
+      if (name !== null && name !== undefined && name !== '') {
+        for (let match of this.matches) {
+          if (match.boards.indexOf(name) > -1) {
             this.selectedMatch = match;
           }
         }
@@ -73,10 +73,10 @@ export class BoardComponent implements OnInit {
   getBoard() {
     if (this.selectedBoard !== null) {
       this.connectFourService.getBoard(this.selectedBoard).subscribe(board => {
-        if(board.boardStatus.gameFinished) {
+        if (board.boardStatus.gameFinished) {
           this.timerSubscription.unsubscribe();
-        }     
-        this.setBoard(board);   
+        }
+        this.setBoard(board);
       });
     }
   }
@@ -93,11 +93,11 @@ export class BoardComponent implements OnInit {
   }
 
   isWinningPosition(board: Board, row: number, col: number) {
-    if(board === null || board.boardStatus === null || board.boardStatus.winningPosition === null || board.boardStatus.winningPosition.length === 0) {
+    if (board === null || board.boardStatus === null || board.boardStatus.winningPosition === null || board.boardStatus.winningPosition.length === 0) {
       return false;
     }
-    for(let r of board.boardStatus.winningPosition) {
-      if(r.length === 2 && r[1] === 5 - row && r[0] === col) {
+    for (let r of board.boardStatus.winningPosition) {
+      if (r.length === 2 && r[1] === 5 - row && r[0] === col) {
         return true;
       }
     }
@@ -149,5 +149,20 @@ export class BoardComponent implements OnInit {
 
   isActiveTeam(team: string) {
     return this.selectedTeam === team ? 'active' : '';
+  }
+
+  filterShows() {
+
+    setTimeout(() => {
+      const matchEl = document.getElementById(this.selectedMatch.round + "-" + this.selectedMatch.team1 + "-" + this.selectedMatch.team2);
+      if (matchEl != null && matchEl != undefined) {
+        matchEl.scrollIntoView(true);
+      }
+
+      const boardEl = document.getElementById(this.selectedBoard);
+      if (boardEl != null && boardEl != undefined) {
+        boardEl.scrollIntoView(true);
+      }
+    }, 50);
   }
 }

@@ -41,12 +41,12 @@
     </div>
   </div>
 </div>
-<a id="filterToggle" href="#filter" class="btn btn-primary btn-sm" data-toggle="collapse">Wähle dein Spiel</a>
-<div id="filter" class="sidebar collapse {{showFilterClass}}">
+<a id="filterToggle" href="#filter" class="btn btn-primary btn-sm" data-toggle="collapse" (click)="filterShows()">Wähle dein Spiel</a>
+<div id="filter" class="sidebar collapse {{showFilterClass}}" (change)="filterShows()">
   <div class="filter-group">
     <input type="text" [(ngModel)]="searchTeam" placeholder="Suche nach Team">
     <div class="list-group">
-      <a class="list-group-item {{isActiveMatch(match)}}" href="#" (click)="!!selectMatch(match)" *ngFor="let match of matches | matchfilter : searchTeam">
+      <a id="{{match.round}}-{{match.team1}}-{{match.team2}}" class="list-group-item {{isActiveMatch(match)}}" href="#" (click)="!!selectMatch(match)" *ngFor="let match of matches | matchfilter : searchTeam">
         <span class="badge badge-pill badge-primary">Runde {{match.round}}</span>
         &nbsp;{{match.team1}} vs. {{match.team2}}
       </a>
@@ -55,7 +55,7 @@
   <div class="filter-group" *ngIf="selectedMatch !== null">
     <input type="text" [(ngModel)]="searchBoard" placeholder="Suche nach Board">
     <div class="list-group">
-      <a class="list-group-item {{isActiveBoard(board)}}" href="#" (click)="!!selectBoard(board)" *ngFor="let board of selectedMatch.boards | filter : searchBoard">
+      <a id="{{board}}" class="list-group-item {{isActiveBoard(board)}}" href="#" (click)="!!selectBoard(board)" *ngFor="let board of selectedMatch.boards | filter : searchBoard">
         {{board}}
       </a>
     </div>
