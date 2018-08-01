@@ -8,10 +8,10 @@
     </h1>
     <div *ngIf="board !== null && !board.boardStatus.gameFinished">
       <h6 class="card-subtitle" *ngIf="isMyTurn">
-        Du bist am Zug Spieler {{selectedTeam}}
+        <span typingAnimation [typeSpeed]="40" [startDelay]="1000">Du bist am Zug ...</span>
       </h6>
       <h6 class="card-subtitle" *ngIf="!isMyTurn">
-        Spieler {{getOtherTeam()}} ist am Zug. Bitte warten ...
+          <span typingAnimation [typeSpeed]="40" [startDelay]="1000">Bitte warten ...</span>
       </h6>
     </div>
     <div *ngIf="board !== null && board.boardStatus.gameFinished">
