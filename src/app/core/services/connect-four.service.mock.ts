@@ -8,6 +8,8 @@ import { Board } from '../models/board.model';
 export class ConnectFourServiceMock {
 
   private board : Board = {
+    boardId: "myBoard",
+    boardAsString: "",
     boardInfo: {
       playerX: 'AllesNurGeCloud',
       playerO: 'The Pirates of Tensor Flow',

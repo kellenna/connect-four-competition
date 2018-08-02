@@ -1,8 +1,13 @@
 <div class="container-fluid">
   <div class="container-fluid header-container">
     <div class="row">
-      <div class="col-9 col border-yellow-left-bottom">
+      <div class="col-6 col border-yellow-left-bottom">
         <img class="img-fluid" src="assets/img/logo-yellow.png" />
+      </div>
+      <div class="col-3 d-flex align-items-center border-yellow-bottom">
+        <button class="btn btn-primary" (click)="export()" [disabled]="!isExportFinished">
+          <img src="./assets/img/icons/si-glyph-file-download.svg" width="16" height="16" class="img-fluid">
+        </button>
       </div>
       <div class="col-3 d-flex align-items-center border-yellow-bottom-right">
         <nav class="navbar navbar-toggleable-sm mx-auto">

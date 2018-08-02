@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -44,7 +45,8 @@ import { StatsModule } from "./stats/stats.module";
   providers: [
     ConnectFourService, 
     ConnectFourServiceMock,
-    TeamsService
+    TeamsService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

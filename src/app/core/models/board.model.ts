@@ -1,7 +1,9 @@
 export interface Board {
+    boardId: string;
     boardInfo: BoardInfo;
     boardStatus: BoardStatus;
     grid: string[][];
+    boardAsString: string;
 }
 
 export interface BoardInfo {
