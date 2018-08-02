@@ -6,12 +6,13 @@ import 'rxjs/add/operator/map';
 import { Board } from '../models/board.model';
 import { Match } from '../models/match.model';
 import { IStats } from '../models/stats.model';
+import { IConnectFourService } from './iconnect-four.service';
 
 // azure link on: https://noser-connect-four.azurewebsites.net/
 // local on: 'http://10.0.75.1:8080/api/connect-four/boards'
 
 @Injectable()
-export class ConnectFourService {  
+export class ConnectFourService implements IConnectFourService {  
     private localUrl: string = 'http://10.0.75.1:8080/api/connect-four/';
     private azureUrl: string = 'https://noser-connect-four.azurewebsites.net/api/connect-four/';
   

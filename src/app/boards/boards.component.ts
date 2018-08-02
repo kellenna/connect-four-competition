@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 
-import { ConnectFourService } from '../core/services/connect-four.service'
+import { ConnectFourServiceFactory } from '../core/services/connect-four-service-factory'
+import { IConnectFourService } from '../core/services/iconnect-four.service'
 import { Board } from '../core/models/board.model';
 
 @Component({
@@ -15,8 +16,11 @@ export class BoardsComponent implements OnInit {
   boards: { [Key: string]: Board } = {};
   private interval: number = 1000;
   private timerObservable: Observable<number>;
+  private connectFourService: IConnectFourService;
 
-  constructor(private connectFourService: ConnectFourService) { }
+  constructor(private connectFourServiceFactory: ConnectFourServiceFactory) {
+    this.connectFourService = this.connectFourServiceFactory.getService();
+   }
 
   ngOnInit() {
     IntervalObservable.create(this.interval).subscribe(() => {

@@ -10,8 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BoardsComponent } from './boards/boards.component';
 
-import { ConnectFourService } from './core/services/connect-four.service'
+import { ConnectFourServiceFactory } from './core/services/connect-four-service-factory'
 import { ConnectFourServiceMock } from './core/services/connect-four.service.mock'
+import { ConnectFourService } from './core/services/connect-four.service'
+import { StaticDataConnectFourService } from './core/services/static-data-connect-four.service'
 import { GamesModule } from "./games/games.module";
 import { GamesmockupModule } from "./gamesmockup/gamesmockup.module";
 import { BoardsModule } from "./boards/boards.module";
@@ -21,6 +23,8 @@ import { PlayMatchModule } from "./play-match/play-match.module";
 import { MatchModule } from "./match/match.module";
 import { TeamsService } from "./core/services/teams.service";
 import { StatsModule } from "./stats/stats.module";
+import { OfflineModule } from './offline/offline.module';
+import { StorageService } from './core/services/storage.service';
 
 @NgModule({
   declarations: [
@@ -40,13 +44,17 @@ import { StatsModule } from "./stats/stats.module";
     TeamsModule,
     PlayMatchModule,
     MatchModule,
-    StatsModule
+    StatsModule,
+    OfflineModule
   ],
   providers: [
-    ConnectFourService, 
+    ConnectFourServiceFactory, 
+    ConnectFourService,
+    StaticDataConnectFourService,
     ConnectFourServiceMock,
     TeamsService,
-    DatePipe
+    DatePipe,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

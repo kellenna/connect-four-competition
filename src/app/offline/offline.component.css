@@ -1,0 +1,15 @@
+.btn, .btn-primary {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: none;
+}
+.btn:active, .btn:hover,
+.btn:focus, .btn:visited,
+.btn-primary:active, .btn-primary:hover,
+.btn-primary:focus, .btn-primary:visited {
+    border: none;
+}
+
+.row {
+    margin-bottom: 1em;
+}

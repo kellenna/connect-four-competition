@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="export()" [disabled]="!isExportFinished">
+        <img src="./assets/img/icons/si-glyph-file-download.svg" width="16" height="16">
+      </button>
+      <span>Daten vom Server exportieren</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <input id="fileUpload" type="file" (change)="uploadZip($event)" accept="application/zip" />
+      <label for="fileUpload">Offline Modus aktivieren und Daten aus Zip verwenden</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="reset()">
+        <!-- <img src="./assets/img/icons/si-glyph-file-download.svg" width="16" height="16"> -->
+        x
+      </button>
+      <span>Offline Modus deaktivieren und Daten von remote verwenden</span>
+    </div>
+  </div>
+</div>

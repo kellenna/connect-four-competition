@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from "rxjs/Subscription"
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
-import { ConnectFourService } from '../core/services/connect-four.service'
+import { ConnectFourServiceFactory } from '../core/services/connect-four-service-factory'
+import { IConnectFourService } from '../core/services/iconnect-four.service'
 import { Board } from '../core/models/board.model';
 import { Match } from '../core/models/match.model';
 
@@ -25,8 +25,11 @@ export class BoardComponent implements OnInit {
   showFilterClass: string = "";
   private interval: number = 1000;
   private timerSubscription: Subscription;
+  private connectFourService: IConnectFourService;
 
-  constructor(private connectFourService: ConnectFourService, private route: ActivatedRoute) { }
+  constructor(private connectFourServiceFactory: ConnectFourServiceFactory, private route: ActivatedRoute) {
+    this.connectFourService = this.connectFourServiceFactory.getService();
+   }
 
   ngOnInit() {
     let name = this.route.snapshot.paramMap.get('name');

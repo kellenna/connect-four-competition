@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConnectFourService } from '../core/services/connect-four.service'
+import { ConnectFourServiceFactory } from '../core/services/connect-four-service-factory'
+import { IConnectFourService } from '../core/services/iconnect-four.service'
 import { TeamsService } from "../core/services/teams.service";
 import { PlayMatch } from '../core/models/playmatch.model'
 import { Team } from "../core/models/team.model";
@@ -15,8 +16,11 @@ export class MatchComponent implements OnInit {
   model: PlayMatch = { round: null, team1: '', team2: '', matches: null };
   isSuccess: boolean = false;
   teams: Team[];
+  private connectFourService: IConnectFourService;
 
-  constructor(private teamsService: TeamsService, private connectFourService: ConnectFourService) { }
+  constructor(private teamsService: TeamsService, private connectFourServiceFactory: ConnectFourServiceFactory) {
+    this.connectFourService = this.connectFourServiceFactory.getService();
+   }
 
   ngOnInit() {
     this.teamsService.getTeams().subscribe(teams => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ConnectFourService } from '../core/services/connect-four.service'
+import { ConnectFourServiceFactory } from '../core/services/connect-four-service-factory'
+import { IConnectFourService } from '../core/services/iconnect-four.service'
 import { TeamsService } from "../core/services/teams.service";
 import { Stats, IStats, TeamStat } from "../core/models/stats.model";
 import { Team } from "../core/models/team.model";
@@ -14,6 +15,7 @@ export class StatsComponent implements OnInit {
   stats: Stats = null;
   teamStats: { [Key: string]: BestOfCategory };
   staticTeams: Team[];
+  private connectFourService: IConnectFourService;
 
   categories(): Array<string> {
     var keys = Object.keys(StatCategory);
@@ -76,7 +78,9 @@ export class StatsComponent implements OnInit {
     return teamName;
   }
 
-  constructor(private teamsService: TeamsService, private connectFourService: ConnectFourService) { }
+  constructor(private teamsService: TeamsService, private connectFourServiceFactory: ConnectFourServiceFactory) {
+    this.connectFourService = this.connectFourServiceFactory.getService();
+   }
 
   ngOnInit() {
 
