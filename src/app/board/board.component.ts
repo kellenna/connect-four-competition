@@ -62,6 +62,10 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.timerSubscription.unsubscribe();
+  }
+
   setBoard(board: Board) {
     board.grid = this.transpose(board.grid);
     this.board = board;

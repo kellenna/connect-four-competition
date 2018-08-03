@@ -2,6 +2,10 @@ h1 {
     color: var(--yellow);
 }
 
+h6 {
+    font-size: calc(80% + 0.8vw);
+}
+
 .col {
     padding: 5px;
     /* border: 1px solid black;       */
@@ -60,6 +64,7 @@ h1 {
 
 .card {
     background-color: var(--black);
+    margin-bottom: 1%;
 }
 
 .list-group{

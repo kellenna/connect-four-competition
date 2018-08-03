@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
+import { Subscription } from 'rxjs/Subscription';
 
 import { ConnectFourServiceFactory } from '../core/services/connect-four-service-factory'
 import { IConnectFourService } from '../core/services/iconnect-four.service'
@@ -20,14 +21,14 @@ export class GamesComponent implements OnInit {
   isVideoVisible: boolean = false;
   videoSrc = "";
   private connectFourService: IConnectFourService;
+  private timerSubscription: Subscription;
 
   constructor(private connectFourServiceFactory: ConnectFourServiceFactory) {
     this.connectFourService = this.connectFourServiceFactory.getService();
    }
 
   ngOnInit() {
-    IntervalObservable.create(this.interval).subscribe(() => {
-
+    this.timerSubscription = IntervalObservable.create(this.interval).subscribe(() => {
       this.connectFourService.getMatches().subscribe(matches => {
         for (let match of matches) {
           var roundMatch = match.boards[0].match(/(\d+)-[\d\D]*/);
@@ -49,6 +50,10 @@ export class GamesComponent implements OnInit {
         this.rounds.sort((a, b): number => b > a ? 1 : -1);
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.timerSubscription.unsubscribe();
   }
 
   getPerc(match: Match): string {

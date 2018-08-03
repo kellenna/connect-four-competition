@@ -26,7 +26,7 @@
               <li class="nav-item">
                 <a class="nav-link {{isActive('/board')}} btn-outline-primary" routerLink="/board">Board</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="!isOffline">
                 <a class="nav-link {{isActive('/match')}} btn-outline-primary" routerLink="/match">Match</a>
               </li>
             </ul>
