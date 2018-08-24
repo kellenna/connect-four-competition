@@ -99,7 +99,7 @@ export class StatsComponent implements OnInit {
             if (this.teamStats[cat] == undefined) {
               this.teamStats[cat] = new BestOfCategory();
             }
-            if (team == undefined || !team.isOnlyShownWithStats) {
+            if (team !== undefined && !team.isOnlyShownWithStats) {
               this.setCharacteristics(cat, teamStat);
             }
           }

@@ -14,6 +14,9 @@ import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group
 export class PlayMatchComponent implements OnInit {
 
   numberOfGamesPlayed: number = 0;
+  isSuccess: boolean = false;
+  isFail: boolean = false;
+  errorMessage: string = null;
   model: PlayMatch = { round: null, team1: '', team2: '', matches: null };
   teams: Team[]
   private connectFourService: IConnectFourService;
@@ -29,9 +32,18 @@ export class PlayMatchComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSuccess = false;
+    this.isFail = false;
     this.numberOfGamesPlayed = 0;
     this.connectFourService.postMatch(this.model.round, this.model.team1, this.model.team2, this.model.matches).subscribe(match => {
+      this.isSuccess = true;
+      this.model.team1 = '';
+      this.model.team2 = '';
       this.play(match.boards, 0);
+    }, 
+    error => {
+      this.isFail = true;
+      this.errorMessage = error._body;
     });
   }
 
@@ -79,5 +91,10 @@ export class PlayMatchComponent implements OnInit {
 
   sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+  resetMessages() {
+    this.isFail = false;
+    this.isSuccess = false;
   }
 }

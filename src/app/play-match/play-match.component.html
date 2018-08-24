@@ -1,22 +1,24 @@
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="pRound">Runde</label>
-    <input type="number" class="form-control" id="pRound" [(ngModel)]="model.round" name="round">
+    <input type="number" class="form-control" id="pRound" [(ngModel)]="model.round" name="round" (input)="resetMessages()">
   </div>
   <div class="form-group">
     <label for="team1Name">Team1</label>
-    <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1" list="teamNames">
+    <input type="text" class="form-control" id="team1Name" placeholder="Name von Team1" [(ngModel)]="model.team1" name="team1" list="teamNames" (input)="resetMessages()">
   </div>
   <div class="form-group">
     <label for="team2Name">Team1</label>
-    <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2" list="teamNames">
+    <input type="text" class="form-control" id="team2Name" placeholder="Name von Team2" [(ngModel)]="model.team2" name="team2" list="teamNames" (input)="resetMessages()">
   </div>
   <div class="form-group">
     <label for="numberOfMatches">Anzahl Spiele</label>
-    <input type="number" class="form-control" id="numberOfMatches" [(ngModel)]="model.matches" name="matches">
+    <input type="number" class="form-control" id="numberOfMatches" [(ngModel)]="model.matches" name="matches" (input)="resetMessages()">
   </div>
   <button type="submit" class="btn btn-primary">Starte Match</button>
 </form>
+<div *ngIf="isSuccess" class="alert alert-success" role="alert">Match erfolgreich erstellt.</div>
+<div *ngIf="isFail" class="alert alert-danger" role="alert">{{errorMessage}}</div>
 <div>Anzahl Spiele gespielt: {{numberOfGamesPlayed}}</div>
 <datalist id="teamNames">
   <option *ngFor="let team of teams" [value]="team.name">

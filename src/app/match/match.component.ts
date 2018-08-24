@@ -15,6 +15,8 @@ export class MatchComponent implements OnInit {
 
   model: PlayMatch = { round: null, team1: '', team2: '', matches: null };
   isSuccess: boolean = false;
+  isFail: boolean = false;
+  errorMessage: string = null;
   teams: Team[];
   private connectFourService: IConnectFourService;
 
@@ -30,8 +32,15 @@ export class MatchComponent implements OnInit {
 
   onSubmit() {
     this.isSuccess = false;
+    this.isFail = false;
     this.connectFourService.postMatch(this.model.round, this.model.team1, this.model.team2, this.model.matches).subscribe(match => {
       this.isSuccess = true;
+      this.model.team1 = '';
+      this.model.team2 = '';
+    },
+    error => {
+      this.isFail = true;
+      this.errorMessage = error._body;
     });
   }
 
@@ -49,6 +58,11 @@ export class MatchComponent implements OnInit {
       case "4": return "./assets/img/gifs/round4.gif";
       default: return "./assets/img/gifs/round.gif";
     }
+  }
+
+  resetMessages() {
+    this.isFail = false;
+    this.isSuccess = false;
   }
 
 }
