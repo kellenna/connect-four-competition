@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1 (click)="showVideoHumanWon()">Mensch</h1>
+  </div>
+  <div class="row">
+    <h1>gegen</h1>
+  </div>
+  <div class="row">
+    <h1 (click)="showVideoMachineWon()">Maschine</h1>
+  </div>
+</div>
+
+<div id="humanAgainstMachineVideo" *ngIf="isVideoVisible">
+  <video width="100%" preload="yes" autoplay (ended)="hideVideo()">
+    <source type="video/mp4" [src]="videoSrc" />
+  </video>
+</div>

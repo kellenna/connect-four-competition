@@ -24,6 +24,7 @@ import { MatchModule } from "./match/match.module";
 import { TeamsService } from "./core/services/teams.service";
 import { StatsModule } from "./stats/stats.module";
 import { OfflineModule } from './offline/offline.module';
+import { MrxModule } from './mrx/mrx.module';
 import { StorageService } from './core/services/storage.service';
 
 @NgModule({
@@ -45,7 +46,8 @@ import { StorageService } from './core/services/storage.service';
     PlayMatchModule,
     MatchModule,
     StatsModule,
-    OfflineModule
+    OfflineModule,
+    MrxModule
   ],
   providers: [
     ConnectFourServiceFactory, 

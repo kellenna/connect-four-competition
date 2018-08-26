@@ -10,6 +10,8 @@ import { StorageService } from './core/services/storage.service';
 export class AppComponent {
   title = '4 Gewinnt Wettkampf';
   isOffline = false;
+  videoSrc = "";
+  isVideoVisible: boolean = false;
 
   constructor(private router: Router, private storageService: StorageService) {
   }
@@ -24,5 +26,16 @@ export class AppComponent {
     this.storageService.watchStorage().subscribe((isOffline:boolean) => {
         this.isOffline = isOffline;
       });    
+  }
+
+  showVideo() {
+    this.videoSrc = "./assets/img/videos/Mensch gegen Maschine.mp4";
+    window.scrollTo(0,0);
+    this.isVideoVisible = true;
+  }
+
+  hideVideo() {
+    this.isVideoVisible = false;
+    this.router.navigate(['/mrx']);
   }
 }

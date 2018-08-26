@@ -2,8 +2,8 @@
   <div class="container-fluid header-container">
     <div class="row">
       <div class="col-9 col border-yellow-left-bottom">
-        <img *ngIf="!isOffline" class="img-fluid" src="assets/img/logo-yellow.png" />
-        <img *ngIf="isOffline" class="img-fluid" src="assets/img/hackathoff.png" />
+        <img *ngIf="!isOffline" class="img-fluid" src="assets/img/logo-yellow.png" (click)="showVideo()" />
+        <img *ngIf="isOffline" class="img-fluid" src="assets/img/hackathoff.png" (click)="showVideo()" />
       </div>
       <div class="col-3 d-flex align-items-center border-yellow-bottom-right">
         <nav class="navbar navbar-toggleable-sm mx-auto">
@@ -37,3 +37,8 @@
   </div>
   <router-outlet></router-outlet>
 </div>
+<div id="humanAgainstMachineVideo" *ngIf="isVideoVisible">
+    <video width="100%" preload="yes" autoplay (ended)="hideVideo()">
+      <source type="video/mp4" [src]="videoSrc" />
+    </video>
+  </div>
