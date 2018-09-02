@@ -52,6 +52,14 @@ export class BoardComponent implements OnInit {
 
     this.connectFourService.getMatches().subscribe(m => {
       this.matches = m;
+      this.matches.sort((a: Match, b: Match): number => a.round < b.round ? 1 : -1);
+
+      for (let match of this.matches) {
+        match.boards = match.boards.sort((a: string, b: string): number => 
+          a.substring(a.indexOf("-")+1, a.indexOf("-", a.indexOf("-")+1)) === b.substring(b.indexOf("-")+1, b.indexOf("-", b.indexOf("-")+1))
+          && parseInt(a.substr(a.lastIndexOf("-")+1)) > parseInt(b.substr(b.lastIndexOf("-")+1)) ? 1 : -1);
+      }
+
       if (name !== null && name !== undefined && name !== '') {
         for (let match of this.matches) {
           if (match.boards.indexOf(name) > -1) {
