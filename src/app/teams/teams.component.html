@@ -14,13 +14,13 @@
       </div>
       <div class="col-md-3">
         <div *ngIf="stats !== undefined && stats.teamStats !== undefined && stats.teamStats[team.name] !== undefined">
-          Gewonnen: {{stats.teamStats[team.name].wonRatio}}%
+          Gewonnen: {{stats.teamStats[team.name].wonRatio}}% ({{stats.teamStats[team.name].wonGames.gamesTotal}})
           <span *ngIf="stats.teamStats[team.name].wonGames.gamesTotal > 0">
             <br/> {{stats.teamStats[team.name].avgDiscsInWon}} Scheiben / Spiel</span>
-          <br/> Verloren: {{stats.teamStats[team.name].lostRatio}}%
+          <br/> Verloren: {{stats.teamStats[team.name].lostRatio}}% ({{stats.teamStats[team.name].lostGames.gamesTotal}})
           <span *ngIf="stats.teamStats[team.name].lostGames.gamesTotal > 0">
             <br/> {{stats.teamStats[team.name].avgDiscsInLost}} Scheiben / Spiel</span>
-          <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}%
+          <br/> Unentschieden: {{stats.teamStats[team.name].drawRatio}}% ({{stats.teamStats[team.name].drawGames.gamesTotal}})
         </div>
       </div>
       <div class="col-md-3">
