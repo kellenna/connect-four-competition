@@ -1,9 +1,7 @@
 <div class="card" *ngIf="selectedBoard !== null && board !== null && (board.boardStatus.gameFinished || selectedTeam !== null)">
   <div class="card-block">
     <h1 class="card-title">
-      <span class="playerX">{{board.boardInfo.playerX}}</span>
-      <br/> gegen
-      <br/>
+      <span class="playerX">{{board.boardInfo.playerX}}</span> gegen 
       <span class="playerO">{{board.boardInfo.playerO}}</span>
     </h1>
     <div *ngIf="board !== null && !board.boardStatus.gameFinished">

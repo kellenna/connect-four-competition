@@ -9,6 +9,7 @@ body{
     background-color: var(--black);
     color: var(--white);
     font-family: 'Anton', sans-serif;
+    /* TODO: anpassen für Beamer */
     font-size: calc(80% + 0.8vw);
 }
 
