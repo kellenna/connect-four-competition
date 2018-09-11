@@ -13,8 +13,8 @@ import { IConnectFourService } from './iconnect-four.service';
 
 @Injectable()
 export class ConnectFourService implements IConnectFourService {  
-    private localUrl: string = 'http://10.0.75.1:8080/api/connect-four/';
-    private azureUrl: string = 'https://noser-connect-four.azurewebsites.net/api/connect-four/';
+    private localeUrl: string = 'http://10.0.75.1:8080/api/connect-four/';
+    private azureUrl: string = 'http://hackathon.westeurope.azurecontainer.io:8080/api/connect-four/';//'https://noser-connect-four.azurewebsites.net/api/connect-four/';
   
     constructor(private http: Http){ }
 

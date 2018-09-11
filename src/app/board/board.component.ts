@@ -91,6 +91,13 @@ export class BoardComponent implements OnInit {
         if (board.boardStatus.gameFinished) {
           this.timerSubscription.unsubscribe();
         }
+        else {
+          if(this.timerSubscription.closed) {
+          this.timerSubscription = IntervalObservable.create(this.interval).subscribe(() => {
+            this.getBoard();
+          });
+          }
+        }
         this.setBoard(board);
       });
     }
